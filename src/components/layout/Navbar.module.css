@@ -1,0 +1,93 @@
+.header{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    backdrop-filter:blur(14px);
+
+    background:rgba(255,255,255,.85);
+
+    border-bottom:1px solid #ececec;
+
+    z-index:1000;
+
+}
+
+.container{
+
+    max-width:1300px;
+
+    margin:auto;
+
+    height:85px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 40px;
+
+}
+
+.logo{
+
+    font-size:32px;
+
+    color:#ff4fa3;
+
+    font-weight:800;
+
+}
+
+.menu{
+
+    display:flex;
+
+    gap:45px;
+
+}
+
+.menu a{
+
+    color:#555;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.menu a:hover{
+
+    color:#ff4fa3;
+
+}
+
+.instagram{
+
+    background:#ff4fa3;
+
+    color:white;
+
+    padding:14px 26px;
+
+    border-radius:40px;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.instagram:hover{
+
+    background:#ea2e8a;
+
+}

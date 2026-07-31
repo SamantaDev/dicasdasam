@@ -1,0 +1,47 @@
+.product-search{
+
+    max-width:1400px;
+
+    margin:50px auto;
+
+    padding:0 8%;
+
+}
+
+.search-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:18px 24px;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.06);
+
+}
+
+.search-box svg{
+
+    color:#999;
+
+}
+
+.search-box input{
+
+    width:100%;
+
+    border:none;
+
+    outline:none;
+
+    font-size:17px;
+
+    background:transparent;
+
+}

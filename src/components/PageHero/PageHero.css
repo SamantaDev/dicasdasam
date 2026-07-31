@@ -1,0 +1,48 @@
+.page-hero{
+
+    padding:90px 8% 70px;
+
+    background:
+    linear-gradient(
+        180deg,
+        #fff8fb,
+        #ffffff
+    );
+
+    border-bottom:1px solid #f1edf4;
+
+}
+
+.page-hero-content{
+
+    max-width:1300px;
+
+    margin:auto;
+
+}
+
+.page-hero h1{
+
+    font-size:56px;
+
+    color:#2d2438;
+
+    margin-bottom:18px;
+
+    font-weight:800;
+
+    line-height:1.1;
+
+}
+
+.page-hero p{
+
+    max-width:700px;
+
+    font-size:22px;
+
+    color:#666;
+
+    line-height:1.8;
+
+}

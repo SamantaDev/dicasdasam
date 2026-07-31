@@ -1,0 +1,115 @@
+@import "./styles/theme.css";
+
+/* restante do index.css */
+
+/* ==========================================
+   DICAS DA SAM
+   Design System
+========================================== */
+
+:root {
+
+  /* Cores */
+
+  --primary:#ff4fa3;
+  --secondary:#ff914d;
+  --gold:#ffd76a;
+
+  --bg:#fff8f4;
+  --surface:#ffffff;
+
+  --title:#2d2436;
+  --text:#5f5969;
+  --muted:#8f8898;
+
+  --border:#f0e5dd;
+
+  /* Sombras */
+
+  --shadow-sm:0 10px 25px rgba(0,0,0,.05);
+  --shadow-md:0 20px 45px rgba(0,0,0,.08);
+  --shadow-lg:0 35px 80px rgba(0,0,0,.12);
+
+  /* Bordas */
+
+  --radius:28px;
+
+  /* Gradiente */
+
+  --gradient:
+  linear-gradient(
+      135deg,
+      #ff4fa3,
+      #ff914d,
+      #ffd76a
+  );
+
+}
+
+*{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+background:var(--bg);
+
+font-family:"Poppins",sans-serif;
+
+color:var(--text);
+
+overflow-x:hidden;
+
+}
+
+img{
+
+display:block;
+
+max-width:100%;
+
+}
+
+button{
+
+font-family:inherit;
+
+cursor:pointer;
+
+border:none;
+
+}
+
+a{
+
+text-decoration:none;
+
+color:inherit;
+
+}
+
+section{
+
+width:100%;
+
+}
+
+.container{
+
+width:min(1320px,92%);
+
+margin:auto;
+
+}

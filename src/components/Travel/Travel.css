@@ -1,0 +1,115 @@
+.travel{
+
+padding:140px 8%;
+
+display:grid;
+
+grid-template-columns:1.2fr .8fr;
+
+align-items:center;
+
+gap:90px;
+
+max-width:1500px;
+
+margin:auto;
+
+}
+
+.travel-image{
+
+overflow:hidden;
+
+border-radius:36px;
+
+box-shadow:0 25px 60px rgba(0,0,0,.12);
+
+}
+
+.travel-image img{
+
+width:100%;
+
+display:block;
+
+transition:.8s;
+
+}
+
+.travel-image:hover img{
+
+transform:scale(1.05);
+
+}
+
+.travel-content span{
+
+display:inline-block;
+
+padding:10px 22px;
+
+border-radius:999px;
+
+background:#ffe8f4;
+
+color:#ff4fa3;
+
+font-weight:700;
+
+margin-bottom:25px;
+
+}
+
+.travel-content h2{
+
+font-size:56px;
+
+line-height:1.1;
+
+color:#2d2438;
+
+margin-bottom:28px;
+
+}
+
+.travel-content p{
+
+font-size:20px;
+
+line-height:1.8;
+
+color:#6d6875;
+
+margin-bottom:40px;
+
+}
+
+.travel-content button{
+
+padding:18px 34px;
+
+border:none;
+
+border-radius:999px;
+
+background:linear-gradient(135deg,#ff4fa3,#ff8a3d);
+
+color:white;
+
+font-size:17px;
+
+font-weight:700;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.travel-content button:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 20px 35px rgba(255,79,163,.25);
+
+}

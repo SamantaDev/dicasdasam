@@ -1,0 +1,57 @@
+.category-filter{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:16px;
+
+    padding:20px 8% 10px;
+
+}
+
+.category-filter button{
+
+    padding:14px 24px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:white;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+.category-filter button:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.category-filter .active{
+
+    background:linear-gradient(
+
+        135deg,
+
+        #ff4fa3,
+
+        #ff8a3d
+
+    );
+
+    color:white;
+
+}

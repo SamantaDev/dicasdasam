@@ -1,0 +1,63 @@
+.admin-layout{
+
+    display:grid;
+
+    grid-template-columns:260px 1fr;
+
+    min-height:100vh;
+
+    background:#f8f9fb;
+
+}
+
+.sidebar{
+
+    background:white;
+
+    border-right:1px solid #ececec;
+
+    padding:40px;
+
+}
+
+.sidebar h2{
+
+    font-size:28px;
+
+    margin-bottom:50px;
+
+    color:#2d2438;
+
+}
+
+.sidebar nav{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.sidebar a{
+
+    color:#555;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+.sidebar a:hover{
+
+    color:#ff4fa3;
+
+}
+
+.admin-content{
+
+    padding:50px;
+
+}
