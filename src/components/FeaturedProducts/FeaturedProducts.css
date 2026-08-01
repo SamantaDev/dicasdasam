@@ -10,7 +10,9 @@
 
     text-align:center;
 
-    margin-bottom:70px;
+    max-width:760px;
+
+    margin:0 auto 70px;
 
 }
 
@@ -30,6 +32,8 @@
 
     margin-bottom:18px;
 
+    font-size:16px;
+
 }
 
 .featured-title h2{
@@ -40,6 +44,8 @@
 
     margin-bottom:18px;
 
+    line-height:1.15;
+
 }
 
 .featured-title p{
@@ -47,6 +53,8 @@
     font-size:20px;
 
     color:#777;
+
+    line-height:1.8;
 
 }
 
@@ -56,29 +64,131 @@
 
     grid-template-columns:repeat(3,1fr);
 
-    gap:42px;
+    gap:40px;
 
     max-width:1450px;
 
     margin:auto;
 
+    align-items:stretch;
+
 }
 
-@media (max-width:1100px){
+/* ==========================================
+   NOTEBOOK
+========================================== */
+
+@media (max-width:1200px){
 
     .products-grid{
 
         grid-template-columns:repeat(2,1fr);
 
+        gap:28px;
+
     }
 
 }
 
-@media (max-width:700px){
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width:1024px){
+
+    .featured{
+
+        padding:90px 7%;
+
+    }
+
+    .featured-title{
+
+        margin-bottom:55px;
+
+    }
+
+    .featured-title h2{
+
+        font-size:42px;
+
+    }
+
+    .featured-title p{
+
+        font-size:18px;
+
+    }
+
+}
+
+/* ==========================================
+   CELULAR
+========================================== */
+
+@media (max-width:768px){
+
+    .featured{
+
+        padding:70px 24px;
+
+    }
+
+    .featured-title{
+
+        margin-bottom:40px;
+
+    }
+
+    .featured-title span{
+
+        font-size:15px;
+
+    }
+
+    .featured-title h2{
+
+        font-size:34px;
+
+    }
+
+    .featured-title p{
+
+        font-size:16px;
+
+    }
 
     .products-grid{
 
         grid-template-columns:1fr;
+
+        gap:22px;
+
+    }
+
+}
+
+/* ==========================================
+   CELULARES PEQUENOS
+========================================== */
+
+@media (max-width:480px){
+
+    .featured{
+
+        padding:60px 20px;
+
+    }
+
+    .featured-title h2{
+
+        font-size:30px;
+
+    }
+
+    .featured-title p{
+
+        font-size:15px;
 
     }
 

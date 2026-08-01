@@ -1,0 +1,186 @@
+.product-card{
+
+    background:#ffffff;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.06);
+
+    transition:
+        transform .45s ease,
+        box-shadow .45s ease;
+
+    position:relative;
+
+}
+
+.product-card:hover{
+
+    transform:translateY(-12px);
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.12);
+
+}
+
+.product-image{
+
+    position:relative;
+
+    overflow:hidden;
+
+    height:300px;
+
+    background:#f8f8f8;
+
+}
+
+.product-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:transform .7s ease;
+
+}
+
+.product-card:hover .product-image img{
+
+    transform:scale(1.08);
+
+}
+
+.category{
+
+    position:absolute;
+
+    top:18px;
+
+    left:18px;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.92);
+
+    backdrop-filter:blur(12px);
+
+    color:#ff4fa3;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+
+}
+
+.product-content{
+
+    padding:30px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    flex:1;
+
+}
+
+.product-content h3{
+
+    font-size:25px;
+
+    color:#2d2438;
+
+    margin-bottom:14px;
+
+    line-height:1.25;
+
+}
+
+.product-content p{
+
+    color:#6d6875;
+
+    font-size:16px;
+
+    line-height:1.8;
+
+    margin-bottom:28px;
+
+}
+
+/* ===========================
+   BOTÃO VER DETALHES
+=========================== */
+
+.details-button{
+
+    margin-top:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    width:100%;
+
+    padding:16px 24px;
+
+    border-radius:999px;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    transition:all .35s ease;
+
+}
+
+.details-button span{
+
+    transition:transform .35s ease;
+
+}
+
+.details-button:hover{
+
+    color:#ffffff;
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 15px 35px rgba(255,79,163,.28);
+
+}
+
+.details-button:hover span{
+
+    transform:translateX(5px);
+
+}

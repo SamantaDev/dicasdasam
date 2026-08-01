@@ -20,6 +20,8 @@
 
     font-weight:700;
 
+    font-size:18px;
+
 }
 
 .categories-title h2{
@@ -30,6 +32,8 @@
 
     margin:18px 0;
 
+    line-height:1.15;
+
 }
 
 .categories-title p{
@@ -37,6 +41,8 @@
     color:#666;
 
     font-size:18px;
+
+    line-height:1.8;
 
 }
 
@@ -52,6 +58,12 @@
 
 .category-card{
 
+    display:block;
+
+    text-decoration:none;
+
+    color:inherit;
+
     background:white;
 
     border-radius:28px;
@@ -62,6 +74,10 @@
 
     box-shadow:0 15px 40px rgba(0,0,0,.05);
 
+    cursor:pointer;
+
+    height:100%;
+
 }
 
 .category-card:hover{
@@ -69,6 +85,12 @@
     transform:translateY(-10px);
 
     box-shadow:0 30px 60px rgba(0,0,0,.10);
+
+}
+
+.category-card:hover .icon{
+
+    transform:rotate(-6deg) scale(1.08);
 
 }
 
@@ -96,6 +118,8 @@
 
     margin-bottom:25px;
 
+    transition:.35s;
+
 }
 
 .category-card h3{
@@ -113,5 +137,185 @@
     color:#666;
 
     line-height:1.7;
+
+}
+
+.category-card:focus{
+
+    outline:none;
+
+}
+
+.category-card:focus-visible{
+
+    box-shadow:
+        0 0 0 4px rgba(255,79,163,.25),
+        0 30px 60px rgba(0,0,0,.10);
+
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width:1024px){
+
+    .categories{
+
+        padding:90px 7%;
+
+    }
+
+    .categories-title{
+
+        margin-bottom:55px;
+
+    }
+
+    .categories-title h2{
+
+        font-size:42px;
+
+    }
+
+    .categories-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:22px;
+
+    }
+
+    .category-card{
+
+        padding:35px;
+
+    }
+
+}
+
+/* ==========================================
+   CELULAR
+========================================== */
+
+@media (max-width:768px){
+
+    .categories{
+
+        padding:70px 24px;
+
+    }
+
+    .categories-title{
+
+        margin-bottom:40px;
+
+    }
+
+    .categories-title span{
+
+        font-size:16px;
+
+    }
+
+    .categories-title h2{
+
+        font-size:34px;
+
+        line-height:1.2;
+
+    }
+
+    .categories-title p{
+
+        font-size:16px;
+
+    }
+
+    .categories-grid{
+
+        grid-template-columns:1fr;
+
+        gap:20px;
+
+    }
+
+    .category-card{
+
+        padding:30px;
+
+        border-radius:22px;
+
+    }
+
+    .icon{
+
+        width:64px;
+
+        height:64px;
+
+        border-radius:18px;
+
+        margin-bottom:20px;
+
+    }
+
+    .category-card h3{
+
+        font-size:22px;
+
+    }
+
+    .category-card p{
+
+        font-size:15px;
+
+    }
+
+}
+
+/* ==========================================
+   CELULARES PEQUENOS
+========================================== */
+
+@media (max-width:480px){
+
+    .categories{
+
+        padding:60px 20px;
+
+    }
+
+    .categories-title h2{
+
+        font-size:30px;
+
+    }
+
+    .categories-title p{
+
+        font-size:15px;
+
+    }
+
+    .category-card{
+
+        padding:25px;
+
+    }
+
+    .icon{
+
+        width:58px;
+
+        height:58px;
+
+    }
+
+    .category-card h3{
+
+        font-size:20px;
+
+    }
 
 }

@@ -1,16 +1,14 @@
+import { Link } from "react-router-dom";
 import "./Hero.css";
 
 export default function Hero() {
   return (
     <section className="hero">
-
       <div className="hero-light one"></div>
       <div className="hero-light two"></div>
 
       <div className="hero-content">
-
         <div className="hero-text">
-
           <span className="badge">
             ✨ Recomendações reais
           </span>
@@ -30,9 +28,12 @@ export default function Hero() {
 
           <div className="hero-buttons">
 
-            <button>
+            <Link
+              to="/produtos"
+              className="hero-button-primary"
+            >
               Explorar recomendações
-            </button>
+            </Link>
 
             <a
               href="https://instagram.com/samantaacristina"

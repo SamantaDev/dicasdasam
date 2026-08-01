@@ -57,9 +57,14 @@ export default function ProductCard({
 
         <p>{product.description}</p>
 
-        <Link to={`/produto/${product.id}`}>
+        <Link
+          to={`/produto/${product.id}`}
+          className="details-button"
+        >
 
-          Ver detalhes →
+          Ver detalhes
+
+          <span>→</span>
 
         </Link>
 
