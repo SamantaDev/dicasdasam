@@ -1,83 +1,40 @@
 import "./Sidebar.css";
 
 import {
+  FolderKanban,
   LayoutDashboard,
+  LogOut,
   Package,
-  Plane,
-  UtensilsCrossed,
-  Sparkles,
+  PlusCircle,
   Settings,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
+import { useAuth } from "../../../hooks/useAuth";
 
 export default function Sidebar() {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  async function handleLogout() {
+    await logout();
+    navigate("/admin/login");
+  }
 
   return (
 
     <aside className="sidebar">
-
-      <div className="sidebar-logo">
-
-        <h2>Dicas da Sam</h2>
-
-        <span>Painel Administrativo</span>
-
-      </div>
-
-      <nav>
-
-        <a href="#">
-
-          <LayoutDashboard size={20} />
-
-          Dashboard
-
-        </a>
-
-        <a href="#">
-
-          <Package size={20} />
-
-          Produtos
-
-        </a>
-
-        <a href="#">
-
-          <Plane size={20} />
-
-          Viagens
-
-        </a>
-
-        <a href="#">
-
-          <UtensilsCrossed size={20} />
-
-          Gastronomia
-
-        </a>
-
-        <a href="#">
-
-          <Sparkles size={20} />
-
-          Lifestyle
-
-        </a>
-
+      <a className="sidebar__brand" href="/admin/dashboard">
+        <span className="sidebar__brand-mark">S</span><span>Dicas da Sam</span>
+      </a>
+      <nav className="sidebar__nav" aria-label="Menu administrativo">
+        <a className="sidebar__link sidebar__link--active" href="/admin/dashboard"><LayoutDashboard size={19} /><span>Dashboard</span></a>
+        <a className="sidebar__link" href="/admin/products"><Package size={19} /><span>Produtos</span></a>
+        <a className="sidebar__link" href="/admin/new-product"><PlusCircle size={19} /><span>Novo Produto</span></a>
+        <a className="sidebar__link" href="/admin/categories"><FolderKanban size={19} /><span>Categorias</span></a>
+        <a className="sidebar__link" href="#configuracoes"><Settings size={19} /><span>Configurações</span></a>
       </nav>
-
-      <div className="sidebar-footer">
-
-        <a href="#">
-
-          <Settings size={20} />
-
-          Configurações
-
-        </a>
-
-      </div>
+      <button className="sidebar__link sidebar__logout" type="button" onClick={handleLogout}><LogOut size={19} /><span>Sair</span></button>
 
     </aside>
 

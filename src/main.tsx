@@ -3,16 +3,24 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
 import { RouterProvider } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 import "./index.css";
 
+import { AuthProvider } from "./context/AuthContext";
 import { router } from "./routes/router";
 
 createRoot(document.getElementById("root")!).render(
 
     <StrictMode>
 
-        <RouterProvider router={router} />
+        <AuthProvider>
+
+            <RouterProvider router={router} />
+
+            <Toaster position="top-right" toastOptions={{ duration: 3500 }} />
+
+        </AuthProvider>
 
     </StrictMode>
 

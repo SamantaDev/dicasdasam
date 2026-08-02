@@ -10,12 +10,9 @@
 
     flex-direction:column;
 
-    box-shadow:
-        0 12px 35px rgba(0,0,0,.06);
+    box-shadow:0 12px 35px rgba(0,0,0,.06);
 
-    transition:
-        transform .45s ease,
-        box-shadow .45s ease;
+    transition:transform .45s ease, box-shadow .45s ease;
 
     position:relative;
 
@@ -25,10 +22,13 @@
 
     transform:translateY(-12px);
 
-    box-shadow:
-        0 30px 70px rgba(0,0,0,.12);
+    box-shadow:0 30px 70px rgba(0,0,0,.12);
 
 }
+
+/* ===========================
+   IMAGEM
+=========================== */
 
 .product-image{
 
@@ -39,6 +39,8 @@
     height:300px;
 
     background:#f8f8f8;
+
+    flex-shrink:0;
 
 }
 
@@ -59,6 +61,10 @@
     transform:scale(1.08);
 
 }
+
+/* ===========================
+   CATEGORIA
+=========================== */
 
 .category{
 
@@ -85,6 +91,10 @@
     box-shadow:0 8px 18px rgba(0,0,0,.08);
 
 }
+
+/* ===========================
+   CONTEÚDO
+=========================== */
 
 .product-content{
 
@@ -120,10 +130,12 @@
 
     margin-bottom:28px;
 
+    flex:1;
+
 }
 
 /* ===========================
-   BOTÃO VER DETALHES
+   BOTÃO
 =========================== */
 
 .details-button{
@@ -150,7 +162,7 @@
         var(--secondary)
     );
 
-    color:#ffffff;
+    color:#fff;
 
     text-decoration:none;
 
@@ -158,29 +170,165 @@
 
     font-weight:700;
 
-    transition:all .35s ease;
+    transition:.35s;
 
 }
 
 .details-button span{
 
-    transition:transform .35s ease;
+    transition:.35s;
 
 }
 
 .details-button:hover{
 
-    color:#ffffff;
-
     transform:translateY(-3px);
 
-    box-shadow:
-        0 15px 35px rgba(255,79,163,.28);
+    box-shadow:0 15px 35px rgba(255,79,163,.28);
 
 }
 
 .details-button:hover span{
 
     transform:translateX(5px);
+
+}
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media (max-width:900px){
+
+.product-image{
+
+    height:240px;
+
+}
+
+}
+
+/* =====================================
+   CELULAR
+===================================== */
+
+@media (max-width:768px){
+
+.product-card{
+
+    flex-direction:row;
+
+    align-items:stretch;
+
+    border-radius:22px;
+
+}
+
+.product-image{
+
+    width:140px;
+
+    height:auto;
+
+    min-height:170px;
+
+}
+
+.product-image img{
+
+    height:100%;
+
+}
+
+.category{
+
+    top:10px;
+
+    left:10px;
+
+    padding:5px 12px;
+
+    font-size:11px;
+
+}
+
+.product-content{
+
+    padding:18px;
+
+}
+
+.product-content h3{
+
+    font-size:20px;
+
+    margin-bottom:10px;
+
+}
+
+.product-content p{
+
+    font-size:14px;
+
+    line-height:1.5;
+
+    margin-bottom:18px;
+}
+
+.details-button{
+
+    padding:12px;
+
+    font-size:14px;
+
+}
+
+}
+
+/* =====================================
+   CELULARES PEQUENOS
+===================================== */
+
+@media (max-width:480px){
+
+.product-card{
+
+    gap:0;
+
+}
+
+.product-image{
+
+    width:120px;
+
+    min-height:150px;
+
+}
+
+.product-content{
+
+    padding:15px;
+
+}
+
+.product-content h3{
+
+    font-size:18px;
+
+}
+
+.product-content p{
+
+    font-size:13px;
+
+}
+
+.details-button{
+
+    padding:10px;
+
+    font-size:13px;
+
+}
 
 }

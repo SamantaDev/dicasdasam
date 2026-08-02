@@ -1,5 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 
+import { adminRoutes } from "./AdminRoutes";
+
 import MainLayout from "../layouts/MainLayout";
 
 import Home from "../pages/Home/Home";
@@ -54,4 +56,5 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  ...adminRoutes,
 ]);

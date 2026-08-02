@@ -1,0 +1,1 @@
+.admin-shell{min-height:100vh;background:#fbf9fc}.admin-shell__content{min-height:100vh;margin-left:252px}.admin-shell__main{width:min(100%,1440px);padding:42px clamp(24px,4.5vw,66px) 64px}@media(max-width:800px){.admin-shell__content{margin-left:68px}}@media(max-width:580px){.admin-shell__content{margin-left:0}.admin-shell__main{padding:29px 18px 45px}}
