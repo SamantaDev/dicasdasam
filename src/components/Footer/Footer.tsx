@@ -21,10 +21,15 @@ export default function Footer() {
 
           <h3>Navegação</h3>
 
-          <a href="#">Produtos</a>
-          <a href="#">Viagens</a>
-          <a href="#">Gastronomia</a>
-          <a href="#">Lifestyle</a>
+<a href="/produtos">Produtos</a>
+
+<a href="/viagens">Viagens</a>
+
+<a href="/gastronomia">Gastronomia</a>
+
+<a href="/lifestyle">Lifestyle</a>
+
+<a href="/contato">Contato</a>
 
         </div>
 

@@ -1,8 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+
 import Home from "./pages/Home/Home";
 import Products from "./pages/Products/Products";
 import Product from "./pages/Product/Product";
+
+import Travel from "./pages/Travel/Travel";
+import Food from "./pages/Food/Food";
+import Lifestyle from "./pages/Lifestyle/Lifestyle";
+import Contact from "./pages/Contact/Contact";
 
 import Admin from "./pages/Admin/Admin";
 import Login from "./pages/Admin/Login";
@@ -16,10 +23,16 @@ export default function App() {
   return (
     <BrowserRouter>
 
+      <ScrollToTop />
+
       <Routes>
 
         {/* Site público */}
-        <Route path="/" element={<Home />} />
+
+        <Route 
+          path="/" 
+          element={<Home />} 
+        />
 
         <Route 
           path="/produtos" 
@@ -32,7 +45,29 @@ export default function App() {
         />
 
 
+        <Route 
+          path="/viagens" 
+          element={<Travel />} 
+        />
+
+        <Route 
+          path="/gastronomia" 
+          element={<Food />} 
+        />
+
+        <Route 
+          path="/lifestyle" 
+          element={<Lifestyle />} 
+        />
+
+        <Route 
+          path="/contato" 
+          element={<Contact />} 
+        />
+
+
         {/* Área administrativa */}
+
         <Route 
           path="/admin" 
           element={<Admin />} 
