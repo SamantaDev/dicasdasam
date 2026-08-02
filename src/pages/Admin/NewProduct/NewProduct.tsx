@@ -465,27 +465,33 @@ export default function NewProduct() {
 
 
 
-            <div className="new-product__field new-product__field--full">
+           <div className="new-product__field new-product__field--full">
 
-              <label>
-                Imagem
-              </label>
+  <label>
+    Imagem (link da imagem)
+  </label>
 
 
-              <input
+  <input
 
-                value={product.image}
+    placeholder="Cole aqui o endereço da imagem do produto"
 
-                onChange={(e)=>
-                  updateField(
-                    "image",
-                    e.target.value
-                  )
-                }
+    value={product.image}
 
-              />
+    onChange={(e)=>
+      updateField(
+        "image",
+        e.target.value
+      )
+    }
 
-            </div>
+  />
+
+  <small>
+    Use o link direto da imagem do produto.
+  </small>
+
+</div>
 
 
 
