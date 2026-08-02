@@ -8,6 +8,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
+
   useEffect(() => {
 
     const handleScroll = () => {
@@ -19,6 +20,8 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
 
   }, []);
+
+
 
   useEffect(() => {
 
@@ -34,9 +37,25 @@ export default function Header() {
 
   }, [menuOpen]);
 
+
+
   function closeMenu() {
     setMenuOpen(false);
   }
+
+
+
+  function handleNavigation() {
+
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+
+  }
+
+
 
   return (
 
@@ -44,10 +63,14 @@ export default function Header() {
 
       <header className={scrolled ? "header scrolled" : "header"}>
 
+
         <NavLink
           to="/"
           className="logo"
-          onClick={closeMenu}
+          onClick={() => {
+            closeMenu();
+            handleNavigation();
+          }}
         >
 
           <span>✨</span>
@@ -62,33 +85,62 @@ export default function Header() {
 
         </NavLink>
 
+
+
         <nav className="desktop-nav">
 
-          <NavLink to="/produtos">
+
+          <NavLink 
+            to="/produtos"
+            onClick={handleNavigation}
+          >
             Produtos
           </NavLink>
 
-          <NavLink to="/viagens">
+
+          <NavLink 
+            to="/viagens"
+            onClick={handleNavigation}
+          >
             Viagens
           </NavLink>
 
-          <NavLink to="/gastronomia">
+
+          <NavLink 
+            to="/gastronomia"
+            onClick={handleNavigation}
+          >
             Gastronomia
           </NavLink>
 
-          <NavLink to="/lifestyle">
+
+          <NavLink 
+            to="/lifestyle"
+            onClick={handleNavigation}
+          >
             Lifestyle
           </NavLink>
 
-          <NavLink to="/sobre">
+
+          <NavLink 
+            to="/sobre"
+            onClick={handleNavigation}
+          >
             Sobre
           </NavLink>
 
-          <NavLink to="/contato">
+
+          <NavLink 
+            to="/contato"
+            onClick={handleNavigation}
+          >
             Contato
           </NavLink>
 
+
         </nav>
+
+
 
         <a
           className="instagram desktop-instagram"
@@ -98,6 +150,8 @@ export default function Header() {
         >
           Instagram
         </a>
+
+
 
         <button
           className="menu-button"
@@ -109,24 +163,35 @@ export default function Header() {
 
         </button>
 
+
+
       </header>
+
+
 
       {menuOpen && (
 
         <>
+
 
           <div
             className="menu-overlay"
             onClick={closeMenu}
           />
 
+
+
           <aside className="mobile-menu">
+
 
             <div className="mobile-header">
 
+
               <div className="mobile-logo">
 
+
                 <span>✨</span>
+
 
                 <div>
 
@@ -136,7 +201,10 @@ export default function Header() {
 
                 </div>
 
+
               </div>
+
+
 
               <button
                 className="close-menu"
@@ -147,60 +215,103 @@ export default function Header() {
 
               </button>
 
+
             </div>
+
+
+
 
             <nav>
 
+
               <NavLink
                 to="/"
-                onClick={closeMenu}
+                onClick={() => {
+                  closeMenu();
+                  handleNavigation();
+                }}
               >
                 Home
               </NavLink>
 
+
+
               <NavLink
                 to="/produtos"
-                onClick={closeMenu}
+                onClick={() => {
+                  closeMenu();
+                  handleNavigation();
+                }}
               >
                 Produtos
               </NavLink>
 
+
+
               <NavLink
                 to="/viagens"
-                onClick={closeMenu}
+                onClick={() => {
+                  closeMenu();
+                  handleNavigation();
+                }}
               >
                 Viagens
               </NavLink>
 
+
+
               <NavLink
                 to="/gastronomia"
-                onClick={closeMenu}
+                onClick={() => {
+                  closeMenu();
+                  handleNavigation();
+                }}
               >
                 Gastronomia
               </NavLink>
 
+
+
               <NavLink
                 to="/lifestyle"
-                onClick={closeMenu}
+                onClick={() => {
+                  closeMenu();
+                  handleNavigation();
+                }}
               >
                 Lifestyle
               </NavLink>
 
+
+
               <NavLink
                 to="/sobre"
-                onClick={closeMenu}
+                onClick={() => {
+                  closeMenu();
+                  handleNavigation();
+                }}
               >
                 Sobre
               </NavLink>
 
+
+
               <NavLink
                 to="/contato"
-                onClick={closeMenu}
+                onClick={() => {
+                  closeMenu();
+                  handleNavigation();
+                }}
               >
                 Contato
               </NavLink>
 
+
+
             </nav>
+
+
+
 
             <a
               className="instagram mobile-instagram"
@@ -213,11 +324,15 @@ export default function Header() {
 
             </a>
 
+
+
           </aside>
+
 
         </>
 
       )}
+
 
     </>
 
