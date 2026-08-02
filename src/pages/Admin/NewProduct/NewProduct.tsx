@@ -23,6 +23,8 @@ const initialProduct: ProductInput = {
 
   category: "",
 
+  type: "product",
+
   shortDescription: "",
 
   description: "",
@@ -31,17 +33,21 @@ const initialProduct: ProductInput = {
 
   affiliateLink: "",
 
+  price: "",
+
+  coupon: "",
+
+  benefit: "",
+
+  location: "",
 
   featured: false,
-
 
   samChoice: false,
 
   novelty: false,
 
-
   samOpinion: "",
-
 
   pros: [],
 
@@ -92,6 +98,7 @@ export default function NewProduct() {
 
   const hasCategories =
     categories.length > 0;
+
 
 
 
@@ -148,23 +155,23 @@ export default function NewProduct() {
   useEffect(() => {
 
 
-  if (!productId) return;
+    if (!productId) return;
 
 
-  const id = productId;
+    const id = productId;
 
 
-  async function loadProduct() {
+    async function loadProduct() {
 
 
-    setIsProductLoading(true);
+      setIsProductLoading(true);
 
 
-    try {
+      try {
 
 
-      const existingProduct =
-        await getProduct(id);
+        const existingProduct =
+          await getProduct(id);
 
 
 
@@ -195,7 +202,6 @@ export default function NewProduct() {
           updatedAt: _updatedAt,
 
           ...productInput
-
 
         } = existingProduct;
 
@@ -239,7 +245,6 @@ export default function NewProduct() {
 
 
 
-
   function updateField<Key extends keyof ProductInput>(
 
     field: Key,
@@ -259,7 +264,6 @@ export default function NewProduct() {
 
 
   }
-
 
 
 
@@ -287,9 +291,7 @@ export default function NewProduct() {
 
       return;
 
-
     }
-
 
 
 
@@ -316,46 +318,45 @@ export default function NewProduct() {
 
 
 
-
     setIsSaving(true);
-
 
 
 
     try {
 
 
-
       const productData: ProductInput = {
 
-
         ...product,
-
 
         title:
           product.title.trim(),
 
-
         shortDescription:
           product.shortDescription.trim(),
-
 
         description:
           product.description.trim(),
 
-
         image:
           product.image.trim(),
-
 
         affiliateLink:
           product.affiliateLink?.trim() || "",
 
+        price:
+          product.price?.trim() || "",
 
+        coupon:
+          product.coupon?.trim() || "",
+
+        benefit:
+          product.benefit?.trim() || "",
+
+        location:
+          product.location?.trim() || "",
 
       };
-
-
 
 
 
@@ -368,9 +369,7 @@ export default function NewProduct() {
         );
 
 
-
       } else {
-
 
 
         await createProduct(
@@ -379,7 +378,6 @@ export default function NewProduct() {
 
 
       }
-
 
 
 
@@ -396,7 +394,6 @@ export default function NewProduct() {
 
 
       navigate("/admin/products");
-
 
 
 
@@ -430,13 +427,7 @@ export default function NewProduct() {
 
 
   }
-
-
-
-
-
-
-  return (
+    return (
 
     <AdminLayout>
 
@@ -477,6 +468,7 @@ export default function NewProduct() {
 
 
 
+
         {isProductLoading ? (
 
 
@@ -504,6 +496,7 @@ export default function NewProduct() {
           <div className="new-product__grid">
 
 
+
             <div className="new-product__field">
 
 
@@ -529,6 +522,7 @@ export default function NewProduct() {
 
 
             </div>
+
 
 
 
@@ -562,11 +556,15 @@ export default function NewProduct() {
                 </option>
 
 
+
                 {categories.map((category)=>(
 
                   <option
+
                     key={category.id}
+
                     value={category.name}
+
                   >
 
                     {category.name}
@@ -580,6 +578,62 @@ export default function NewProduct() {
 
 
             </div>
+
+
+
+
+
+            <div className="new-product__field">
+
+
+              <label>
+                Tipo de recomendação
+              </label>
+
+
+              <select
+
+                value={product.type}
+
+                onChange={(e)=>
+
+                  updateField(
+
+                    "type",
+
+                    e.target.value as ProductInput["type"]
+
+                  )
+
+                }
+
+              >
+
+                <option value="product">
+                  🛍 Produto
+                </option>
+
+
+                <option value="restaurant">
+                  🍽 Restaurante
+                </option>
+
+
+                <option value="hotel">
+                  🏨 Hotel
+                </option>
+
+
+                <option value="experience">
+                  ✨ Experiência
+                </option>
+
+
+              </select>
+
+
+            </div>
+
 
 
 
@@ -599,8 +653,11 @@ export default function NewProduct() {
                 onChange={(e)=>
 
                   updateField(
+
                     "image",
+
                     e.target.value
+
                   )
 
                 }
@@ -609,6 +666,77 @@ export default function NewProduct() {
 
 
             </div>
+
+
+
+
+
+            <div className="new-product__field">
+
+
+              <label>
+                Localização
+              </label>
+
+
+              <input
+
+                placeholder="Cidade ou endereço"
+
+                value={product.location ?? ""}
+
+                onChange={(e)=>
+
+                  updateField(
+
+                    "location",
+
+                    e.target.value
+
+                  )
+
+                }
+
+              />
+
+
+            </div>
+
+
+
+
+
+            <div className="new-product__field">
+
+
+              <label>
+                Preço
+              </label>
+
+
+              <input
+
+                placeholder="Ex: R$ 199,90 ou consultar"
+
+                value={product.price ?? ""}
+
+                onChange={(e)=>
+
+                  updateField(
+
+                    "price",
+
+                    e.target.value
+
+                  )
+
+                }
+
+              />
+
+
+            </div>
+
 
 
 
@@ -628,8 +756,11 @@ export default function NewProduct() {
                 onChange={(e)=>
 
                   updateField(
+
                     "shortDescription",
+
                     e.target.value
+
                   )
 
                 }
@@ -638,11 +769,7 @@ export default function NewProduct() {
 
 
             </div>
-
-
-
-
-            <div className="new-product__field new-product__field--full">
+                        <div className="new-product__field new-product__field--full">
 
 
               <label>
@@ -657,8 +784,11 @@ export default function NewProduct() {
                 onChange={(e)=>
 
                   updateField(
+
                     "description",
+
                     e.target.value
+
                   )
 
                 }
@@ -667,6 +797,7 @@ export default function NewProduct() {
 
 
             </div>
+
 
 
 
@@ -686,8 +817,11 @@ export default function NewProduct() {
                 onChange={(e)=>
 
                   updateField(
+
                     "affiliateLink",
+
                     e.target.value
+
                   )
 
                 }
@@ -696,6 +830,78 @@ export default function NewProduct() {
 
 
             </div>
+
+
+
+
+
+            <div className="new-product__field new-product__field--full">
+
+
+              <label>
+                Cupom de desconto
+              </label>
+
+
+              <input
+
+                placeholder="Ex: SAM10"
+
+                value={product.coupon ?? ""}
+
+                onChange={(e)=>
+
+                  updateField(
+
+                    "coupon",
+
+                    e.target.value
+
+                  )
+
+                }
+
+              />
+
+
+            </div>
+
+
+
+
+
+            <div className="new-product__field new-product__field--full">
+
+
+              <label>
+                Benefício para seguidores
+              </label>
+
+
+              <input
+
+                placeholder="Ex: 10% de desconto exclusivo"
+
+                value={product.benefit ?? ""}
+
+                onChange={(e)=>
+
+                  updateField(
+
+                    "benefit",
+
+                    e.target.value
+
+                  )
+
+                }
+
+              />
+
+
+            </div>
+
+
 
 
           </div>
@@ -715,8 +921,11 @@ export default function NewProduct() {
               onChange={(e)=>
 
                 updateField(
+
                   "featured",
+
                   e.target.checked
+
                 )
 
               }
@@ -745,8 +954,11 @@ export default function NewProduct() {
               onChange={(e)=>
 
                 updateField(
+
                   "samChoice",
+
                   e.target.checked
+
                 )
 
               }
@@ -775,8 +987,11 @@ export default function NewProduct() {
               onChange={(e)=>
 
                 updateField(
+
                   "novelty",
+
                   e.target.checked
+
                 )
 
               }
@@ -803,13 +1018,16 @@ export default function NewProduct() {
 
             <textarea
 
-              value={product.samOpinion}
+              value={product.samOpinion ?? ""}
 
               onChange={(e)=>
 
                 updateField(
+
                   "samOpinion",
+
                   e.target.value
+
                 )
 
               }
@@ -860,6 +1078,7 @@ export default function NewProduct() {
 
 
 
+
             <button
 
               type="submit"
@@ -869,14 +1088,19 @@ export default function NewProduct() {
             >
 
               {isSaving
+
                 ? "Salvando..."
-                : "Salvar"}
+
+                : "Salvar"
+
+              }
 
 
             </button>
 
 
           </div>
+
 
 
 
