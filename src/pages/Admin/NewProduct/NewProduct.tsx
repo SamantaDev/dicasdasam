@@ -18,7 +18,6 @@ import type { ProductInput } from "../../../types/Product";
 
 
 const initialProduct: ProductInput = {
-
   title: "",
 
   category: "",
@@ -52,9 +51,7 @@ const initialProduct: ProductInput = {
   pros: [],
 
   cons: [],
-
 };
-
 
 
 
@@ -98,7 +95,6 @@ export default function NewProduct() {
 
   const hasCategories =
     categories.length > 0;
-
 
 
 
@@ -203,6 +199,7 @@ export default function NewProduct() {
 
           ...productInput
 
+
         } = existingProduct;
 
 
@@ -245,6 +242,7 @@ export default function NewProduct() {
 
 
 
+
   function updateField<Key extends keyof ProductInput>(
 
     field: Key,
@@ -264,6 +262,7 @@ export default function NewProduct() {
 
 
   }
+
 
 
 
@@ -291,7 +290,9 @@ export default function NewProduct() {
 
       return;
 
+
     }
+
 
 
 
@@ -318,45 +319,46 @@ export default function NewProduct() {
 
 
 
+
     setIsSaving(true);
+
 
 
 
     try {
 
 
+
       const productData: ProductInput = {
 
+
         ...product,
+
 
         title:
           product.title.trim(),
 
+
         shortDescription:
           product.shortDescription.trim(),
+
 
         description:
           product.description.trim(),
 
+
         image:
           product.image.trim(),
+
 
         affiliateLink:
           product.affiliateLink?.trim() || "",
 
-        price:
-          product.price?.trim() || "",
 
-        coupon:
-          product.coupon?.trim() || "",
-
-        benefit:
-          product.benefit?.trim() || "",
-
-        location:
-          product.location?.trim() || "",
 
       };
+
+
 
 
 
@@ -369,7 +371,9 @@ export default function NewProduct() {
         );
 
 
+
       } else {
+
 
 
         await createProduct(
@@ -378,6 +382,7 @@ export default function NewProduct() {
 
 
       }
+
 
 
 
@@ -394,6 +399,7 @@ export default function NewProduct() {
 
 
       navigate("/admin/products");
+
 
 
 
@@ -463,6 +469,11 @@ export default function NewProduct() {
           </p>
 
 
+          <p className="new-product__info">
+            Campos com * são obrigatórios.
+          </p>
+
+
         </div>
 
 
@@ -501,7 +512,7 @@ export default function NewProduct() {
 
 
               <label>
-                Nome
+                Nome *
               </label>
 
 
@@ -531,7 +542,7 @@ export default function NewProduct() {
 
 
               <label>
-                Categoria
+                Categoria *
               </label>
 
 
@@ -587,7 +598,7 @@ export default function NewProduct() {
 
 
               <label>
-                Tipo de recomendação
+                Tipo de recomendação *
               </label>
 
 
@@ -642,7 +653,7 @@ export default function NewProduct() {
 
 
               <label>
-                Imagem (link da imagem)
+                Imagem *
               </label>
 
 
@@ -675,7 +686,7 @@ export default function NewProduct() {
 
 
               <label>
-                Localização
+                Localização (opcional)
               </label>
 
 
@@ -710,7 +721,7 @@ export default function NewProduct() {
 
 
               <label>
-                Preço
+                Preço (opcional)
               </label>
 
 
@@ -745,7 +756,7 @@ export default function NewProduct() {
 
 
               <label>
-                Descrição curta
+                Descrição curta *
               </label>
 
 
@@ -773,7 +784,7 @@ export default function NewProduct() {
 
 
               <label>
-                Descrição completa
+                Descrição completa *
               </label>
 
 
@@ -806,7 +817,7 @@ export default function NewProduct() {
 
 
               <label>
-                Link de afiliado
+                Link de afiliado (opcional)
               </label>
 
 
@@ -839,7 +850,7 @@ export default function NewProduct() {
 
 
               <label>
-                Cupom de desconto
+                Cupom de desconto (opcional)
               </label>
 
 
@@ -874,7 +885,7 @@ export default function NewProduct() {
 
 
               <label>
-                Benefício para seguidores
+                Benefício para seguidores (opcional)
               </label>
 
 
@@ -1012,7 +1023,7 @@ export default function NewProduct() {
 
 
             <label>
-              Opinião da Sam
+              Opinião da Sam (opcional)
             </label>
 
 
