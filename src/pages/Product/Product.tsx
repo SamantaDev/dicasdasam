@@ -32,7 +32,6 @@ export default function Product() {
     loadProduct();
   }, [id]);
 
-
   if (loading) {
     return (
       <section className="product-page">
@@ -40,7 +39,6 @@ export default function Product() {
       </section>
     );
   }
-
 
   if (!product) {
     return (
@@ -54,12 +52,10 @@ export default function Product() {
     );
   }
 
-
   return (
     <section className="product-page">
 
       <div className="product-container">
-
 
         <div className="product-photo">
 
@@ -72,29 +68,30 @@ export default function Product() {
         </div>
 
 
-
         <div className="product-info">
 
 
-          <span className="product-category">
-            {product.category}
-          </span>
+          <div className="product-tags">
 
-
-
-          {product.samChoice && (
-            <span className="sam-badge">
-              ✨ Escolha da Sam
+            <span className="product-category">
+              {product.category}
             </span>
-          )}
 
 
+            {product.samChoice && (
+              <span className="sam-badge">
+                ✨ Escolha da Sam
+              </span>
+            )}
 
-          {product.novelty && (
-            <span className="new-badge">
-              🔥 Novidade
-            </span>
-          )}
+
+            {product.novelty && (
+              <span className="new-badge">
+                🆕 Novidade
+              </span>
+            )}
+
+          </div>
 
 
 
@@ -118,6 +115,7 @@ export default function Product() {
                 💗 Opinião da Sam
               </h3>
 
+
               <p>
                 "{product.samOpinion}"
               </p>
@@ -134,18 +132,19 @@ export default function Product() {
 
 
               <h3>
-                Minha avaliação
+                ✨ Minha experiência
               </h3>
 
 
 
               {product.pros && product.pros.length > 0 && (
 
-                <div>
+                <div className="evaluation-block">
 
                   <strong>
-                    Pontos positivos:
+                    O que eu gostei:
                   </strong>
+
 
                   <ul>
 
@@ -165,9 +164,10 @@ export default function Product() {
 
 
 
+
               {product.cons && product.cons.length > 0 && (
 
-                <div>
+                <div className="evaluation-block">
 
                   <strong>
                     Pontos de atenção:
@@ -197,20 +197,7 @@ export default function Product() {
 
 
 
-          {product.rating && product.rating > 0 && (
-
-            <div className="rating">
-
-              ⭐ Nota da Sam: {product.rating}/5
-
-            </div>
-
-          )}
-
-
-
           <div className="product-buttons">
-
 
             <a
               href={product.affiliateLink}
@@ -218,9 +205,8 @@ export default function Product() {
               rel="noopener noreferrer"
               className="buy-button"
             >
-              Comprar agora →
+              Quero conhecer →
             </a>
-
 
 
             <Link
@@ -230,12 +216,10 @@ export default function Product() {
               ← Voltar
             </Link>
 
-
           </div>
 
 
         </div>
-
 
       </div>
 

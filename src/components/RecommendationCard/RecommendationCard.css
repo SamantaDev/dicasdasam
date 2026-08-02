@@ -18,6 +18,7 @@
 
 }
 
+
 .product-card:hover{
 
     transform:translateY(-12px);
@@ -25,6 +26,7 @@
     box-shadow:0 30px 70px rgba(0,0,0,.12);
 
 }
+
 
 /* ===========================
    IMAGEM
@@ -44,6 +46,7 @@
 
 }
 
+
 .product-image img{
 
     width:100%;
@@ -56,15 +59,71 @@
 
 }
 
+
 .product-card:hover .product-image img{
 
     transform:scale(1.08);
 
 }
 
+
+/* ===========================
+   SELOS DE CURADORIA DA SAM
+=========================== */
+
+
+.sam-badge,
+.novelty-badge{
+
+    position:absolute;
+
+    top:18px;
+
+    left:18px;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    font-size:13px;
+
+    font-weight:800;
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+
+    z-index:2;
+
+}
+
+
+.sam-badge{
+
+    background:linear-gradient(
+        135deg,
+        #fff1c7,
+        #ffe2ef
+    );
+
+    color:#b56a00;
+
+}
+
+
+.novelty-badge{
+
+    background:rgba(255,255,255,.92);
+
+    color:#ff4fa3;
+
+}
+
+
 /* ===========================
    CATEGORIA
 =========================== */
+
 
 .category{
 
@@ -72,7 +131,7 @@
 
     top:18px;
 
-    left:18px;
+    right:18px;
 
     padding:8px 18px;
 
@@ -92,9 +151,11 @@
 
 }
 
+
 /* ===========================
    CONTEÚDO
 =========================== */
+
 
 .product-content{
 
@@ -108,6 +169,7 @@
 
 }
 
+
 .product-content h3{
 
     font-size:25px;
@@ -119,6 +181,7 @@
     line-height:1.25;
 
 }
+
 
 .product-content p{
 
@@ -134,9 +197,57 @@
 
 }
 
+
+/* ===========================
+   OPINIÃO DA SAM
+=========================== */
+
+
+.sam-opinion{
+
+    background:#fff7fb;
+
+    border-left:4px solid var(--primary);
+
+    border-radius:16px;
+
+    padding:16px;
+
+    margin-bottom:24px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+
+.sam-opinion strong{
+
+    color:#2d2438;
+
+    font-size:14px;
+
+}
+
+
+.sam-opinion span{
+
+    color:#666;
+
+    font-size:14px;
+
+    line-height:1.6;
+
+}
+
+
 /* ===========================
    BOTÃO
 =========================== */
+
 
 .details-button{
 
@@ -174,11 +285,13 @@
 
 }
 
+
 .details-button span{
 
     transition:.35s;
 
 }
+
 
 .details-button:hover{
 
@@ -188,17 +301,22 @@
 
 }
 
+
 .details-button:hover span{
 
     transform:translateX(5px);
 
 }
 
+
+
 /* =====================================
    TABLET
 ===================================== */
 
+
 @media (max-width:900px){
+
 
 .product-image{
 
@@ -206,13 +324,18 @@
 
 }
 
+
 }
+
+
 
 /* =====================================
    CELULAR
 ===================================== */
 
+
 @media (max-width:768px){
+
 
 .product-card{
 
@@ -224,6 +347,7 @@
 
 }
 
+
 .product-image{
 
     width:140px;
@@ -234,13 +358,16 @@
 
 }
 
+
 .product-image img{
 
     height:100%;
 
 }
 
-.category{
+
+.sam-badge,
+.novelty-badge{
 
     top:10px;
 
@@ -252,11 +379,30 @@
 
 }
 
+
+.category{
+
+    top:auto;
+
+    bottom:10px;
+
+    left:10px;
+
+    right:auto;
+
+    padding:5px 12px;
+
+    font-size:11px;
+
+}
+
+
 .product-content{
 
     padding:18px;
 
 }
+
 
 .product-content h3{
 
@@ -266,6 +412,7 @@
 
 }
 
+
 .product-content p{
 
     font-size:14px;
@@ -273,7 +420,32 @@
     line-height:1.5;
 
     margin-bottom:18px;
+
 }
+
+
+.sam-opinion{
+
+    padding:12px;
+
+    margin-bottom:16px;
+
+}
+
+
+.sam-opinion strong{
+
+    font-size:12px;
+
+}
+
+
+.sam-opinion span{
+
+    font-size:12px;
+
+}
+
 
 .details-button{
 
@@ -283,19 +455,25 @@
 
 }
 
+
 }
+
+
 
 /* =====================================
    CELULARES PEQUENOS
 ===================================== */
 
+
 @media (max-width:480px){
+
 
 .product-card{
 
     gap:0;
 
 }
+
 
 .product-image{
 
@@ -305,11 +483,13 @@
 
 }
 
+
 .product-content{
 
     padding:15px;
 
 }
+
 
 .product-content h3{
 
@@ -317,11 +497,13 @@
 
 }
 
+
 .product-content p{
 
     font-size:13px;
 
 }
+
 
 .details-button{
 
@@ -330,5 +512,6 @@
     font-size:13px;
 
 }
+
 
 }
