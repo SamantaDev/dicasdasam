@@ -18,60 +18,96 @@ import type { ProductInput } from "../../../types/Product";
 
 
 const initialProduct: ProductInput = {
+
   title: "",
+
   category: "",
+
   shortDescription: "",
+
   description: "",
+
   image: "",
+
   affiliateLink: "",
+
 
   featured: false,
 
+
   samChoice: false,
+
   novelty: false,
+
 
   samOpinion: "",
 
+
   pros: [],
+
   cons: [],
 
-  rating: 0,
 };
+
+
 
 
 export default function NewProduct() {
 
-  const [product, setProduct] = useState<ProductInput>(initialProduct);
 
-  const [error, setError] = useState("");
+  const [product, setProduct] =
+    useState<ProductInput>(initialProduct);
 
-  const [isSaving, setIsSaving] = useState(false);
 
-  const [categories, setCategories] = useState<Category[]>([]);
+  const [error, setError] =
+    useState("");
 
-  const [, setIsCategoriesLoading] = useState(true);
 
-  const [isProductLoading, setIsProductLoading] = useState(false);
+  const [isSaving, setIsSaving] =
+    useState(false);
+
+
+  const [categories, setCategories] =
+    useState<Category[]>([]);
+
+
+  const [, setIsCategoriesLoading] =
+    useState(true);
+
+
+  const [isProductLoading, setIsProductLoading] =
+    useState(false);
+
 
 
   const navigate = useNavigate();
 
+
   const { id: productId } = useParams();
+
 
   const isEditing = Boolean(productId);
 
 
-  const hasCategories = categories.length > 0;
+
+  const hasCategories =
+    categories.length > 0;
+
 
 
 
   useEffect(() => {
 
+
     async function loadCategories() {
+
 
       try {
 
-        const availableCategories = await getCategories();
+
+        const availableCategories =
+          await getCategories();
+
 
         setCategories(
           availableCategories.filter(
@@ -79,17 +115,23 @@ export default function NewProduct() {
           )
         );
 
+
       } catch {
+
 
         setError(
           "Não foi possível carregar as categorias."
         );
 
+
       } finally {
+
 
         setIsCategoriesLoading(false);
 
+
       }
+
 
     }
 
@@ -102,46 +144,65 @@ export default function NewProduct() {
 
 
 
+
   useEffect(() => {
 
-    if (!productId) return;
+
+  if (!productId) return;
 
 
-    const id = productId;
+  const id = productId;
 
 
-    async function loadProduct() {
-
-      setIsProductLoading(true);
+  async function loadProduct() {
 
 
-      try {
+    setIsProductLoading(true);
 
-        const existingProduct = await getProduct(id);
+
+    try {
+
+
+      const existingProduct =
+        await getProduct(id);
+
 
 
         if (!existingProduct) {
+
 
           toast.error(
             "Produto não encontrado."
           );
 
+
           navigate("/admin/products");
 
+
           return;
+
 
         }
 
 
+
         const {
+
           id: _id,
+
           createdAt: _createdAt,
+
           updatedAt: _updatedAt,
+
           ...productInput
+
+
         } = existingProduct;
 
 
+
         setProduct(productInput);
+
 
 
       } catch {
@@ -155,16 +216,21 @@ export default function NewProduct() {
         navigate("/admin/products");
 
 
+
       } finally {
+
 
         setIsProductLoading(false);
 
+
       }
+
 
     }
 
 
     void loadProduct();
+
 
 
   }, [navigate, productId]);
@@ -173,10 +239,15 @@ export default function NewProduct() {
 
 
 
+
   function updateField<Key extends keyof ProductInput>(
+
     field: Key,
+
     value: ProductInput[Key]
+
   ) {
+
 
     setProduct((currentProduct) => ({
 
@@ -186,7 +257,9 @@ export default function NewProduct() {
 
     }));
 
+
   }
+
 
 
 
@@ -195,6 +268,7 @@ export default function NewProduct() {
   async function handleSubmit(
     event: FormEvent<HTMLFormElement>
   ) {
+
 
     event.preventDefault();
 
@@ -205,30 +279,41 @@ export default function NewProduct() {
 
     if (!hasCategories) {
 
+
       setError(
         "Cadastre uma categoria antes de criar um produto."
       );
 
+
       return;
+
 
     }
 
 
 
+
     if (
+
       !product.title.trim() ||
+
       !product.category ||
-      !product.description.trim() ||
-      !product.affiliateLink.trim()
+
+      !product.description.trim()
+
     ) {
+
 
       setError(
         "Preencha todos os campos obrigatórios."
       );
 
+
       return;
 
+
     }
+
 
 
 
@@ -236,33 +321,46 @@ export default function NewProduct() {
 
 
 
+
     try {
+
 
 
       const productData: ProductInput = {
 
+
         ...product,
+
 
         title:
           product.title.trim(),
 
+
         shortDescription:
           product.shortDescription.trim(),
+
 
         description:
           product.description.trim(),
 
+
         image:
           product.image.trim(),
 
+
         affiliateLink:
-          product.affiliateLink.trim(),
+          product.affiliateLink?.trim() || "",
+
+
 
       };
 
 
 
+
+
       if (productId) {
+
 
         await updateProduct(
           productId,
@@ -270,7 +368,9 @@ export default function NewProduct() {
         );
 
 
+
       } else {
+
 
 
         await createProduct(
@@ -279,6 +379,7 @@ export default function NewProduct() {
 
 
       }
+
 
 
 
@@ -298,6 +399,7 @@ export default function NewProduct() {
 
 
 
+
     } catch {
 
 
@@ -313,9 +415,7 @@ export default function NewProduct() {
 
 
       setError(
-
         "Não foi possível salvar o produto."
-
       );
 
 
@@ -327,6 +427,7 @@ export default function NewProduct() {
 
 
     }
+
 
   }
 
@@ -345,22 +446,29 @@ export default function NewProduct() {
 
         <div className="new-product__heading">
 
+
           <p className="new-product__eyebrow">
             Produtos
           </p>
 
 
+
           <h1>
+
             {isEditing
               ? "Editar Produto"
               : "Novo Produto"}
+
           </h1>
 
 
+
           <p>
+
             {isEditing
               ? "Atualize as informações da recomendação."
               : "Preencha as informações para preparar uma nova recomendação."}
+
           </p>
 
 
@@ -369,29 +477,35 @@ export default function NewProduct() {
 
 
 
-
         {isProductLoading ? (
 
+
           <p className="new-product__loading">
+
             Carregando produto...
+
           </p>
+
 
 
         ) : (
 
 
-        <form
-          className="new-product__form"
-          onSubmit={handleSubmit}
-        >
 
+        <form
+
+          className="new-product__form"
+
+          onSubmit={handleSubmit}
+
+        >
 
 
           <div className="new-product__grid">
 
 
-
             <div className="new-product__field">
+
 
               <label>
                 Nome
@@ -403,13 +517,16 @@ export default function NewProduct() {
                 value={product.title}
 
                 onChange={(e)=>
+
                   updateField(
                     "title",
                     e.target.value
                   )
+
                 }
 
               />
+
 
             </div>
 
@@ -429,21 +546,23 @@ export default function NewProduct() {
                 value={product.category}
 
                 onChange={(e)=>
+
                   updateField(
                     "category",
                     e.target.value
                   )
+
                 }
 
               >
+
 
                 <option value="">
                   Selecione
                 </option>
 
 
-                {categories.map(
-                  (category)=>(
+                {categories.map((category)=>(
 
                   <option
                     key={category.id}
@@ -465,38 +584,37 @@ export default function NewProduct() {
 
 
 
-           <div className="new-product__field new-product__field--full">
-
-  <label>
-    Imagem (link da imagem)
-  </label>
+            <div className="new-product__field new-product__field--full">
 
 
-  <input
+              <label>
+                Imagem (link da imagem)
+              </label>
 
-    placeholder="Cole aqui o endereço da imagem do produto"
 
-    value={product.image}
+              <input
 
-    onChange={(e)=>
-      updateField(
-        "image",
-        e.target.value
-      )
-    }
+                value={product.image}
 
-  />
+                onChange={(e)=>
 
-  <small>
-    Use o link direto da imagem do produto.
-  </small>
+                  updateField(
+                    "image",
+                    e.target.value
+                  )
 
-</div>
+                }
+
+              />
+
+
+            </div>
 
 
 
 
             <div className="new-product__field new-product__field--full">
+
 
               <label>
                 Descrição curta
@@ -508,13 +626,16 @@ export default function NewProduct() {
                 value={product.shortDescription}
 
                 onChange={(e)=>
+
                   updateField(
                     "shortDescription",
                     e.target.value
                   )
+
                 }
 
               />
+
 
             </div>
 
@@ -522,6 +643,7 @@ export default function NewProduct() {
 
 
             <div className="new-product__field new-product__field--full">
+
 
               <label>
                 Descrição completa
@@ -533,10 +655,12 @@ export default function NewProduct() {
                 value={product.description}
 
                 onChange={(e)=>
+
                   updateField(
                     "description",
                     e.target.value
                   )
+
                 }
 
               />
@@ -557,13 +681,15 @@ export default function NewProduct() {
 
               <input
 
-                value={product.affiliateLink}
+                value={product.affiliateLink ?? ""}
 
                 onChange={(e)=>
+
                   updateField(
                     "affiliateLink",
                     e.target.value
                   )
+
                 }
 
               />
@@ -578,7 +704,6 @@ export default function NewProduct() {
 
 
 
-
           <label>
 
             <input
@@ -588,13 +713,16 @@ export default function NewProduct() {
               checked={product.featured}
 
               onChange={(e)=>
+
                 updateField(
                   "featured",
                   e.target.checked
                 )
+
               }
 
             />
+
 
             Produto em destaque
 
@@ -607,6 +735,7 @@ export default function NewProduct() {
 
           <label>
 
+
             <input
 
               type="checkbox"
@@ -614,13 +743,16 @@ export default function NewProduct() {
               checked={product.samChoice}
 
               onChange={(e)=>
+
                 updateField(
                   "samChoice",
                   e.target.checked
                 )
+
               }
 
             />
+
 
             Escolha da Sam
 
@@ -631,8 +763,8 @@ export default function NewProduct() {
 
 
 
-
           <label>
+
 
             <input
 
@@ -641,13 +773,16 @@ export default function NewProduct() {
               checked={product.novelty}
 
               onChange={(e)=>
+
                 updateField(
                   "novelty",
                   e.target.checked
                 )
+
               }
 
             />
+
 
             Novidade
 
@@ -671,10 +806,12 @@ export default function NewProduct() {
               value={product.samOpinion}
 
               onChange={(e)=>
+
                 updateField(
                   "samOpinion",
                   e.target.value
                 )
+
               }
 
             />
@@ -689,7 +826,9 @@ export default function NewProduct() {
           {error && (
 
             <p className="new-product__error">
+
               {error}
+
             </p>
 
           )}
@@ -707,7 +846,9 @@ export default function NewProduct() {
               type="button"
 
               onClick={()=>
+
                 navigate("/admin/products")
+
               }
 
             >
@@ -731,10 +872,12 @@ export default function NewProduct() {
                 ? "Salvando..."
                 : "Salvar"}
 
+
             </button>
 
 
           </div>
+
 
 
 
