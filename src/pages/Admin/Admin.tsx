@@ -1,23 +1,36 @@
 import "./Admin.css";
 
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import AdminLayout from "../../components/Admin/AdminLayout/AdminLayout";
 
-import { products } from "../../data/products";
+import { getProducts } from "../../services/productService";
 
 export default function Admin() {
+  const [totalProducts, setTotalProducts] = useState(0);
 
-  const totalProducts = products.length;
+  useEffect(() => {
+    async function loadProducts() {
+      try {
+        const products = await getProducts();
+
+        setTotalProducts(products.length);
+
+      } catch (error) {
+        console.error("Erro ao carregar produtos:", error);
+      }
+    }
+
+    loadProducts();
+  }, []);
 
   const totalTravels = 0;
   const totalFood = 0;
   const totalLifestyle = 0;
 
   return (
-
     <AdminLayout>
-
       <section className="admin">
 
         <div className="admin-header">
@@ -27,12 +40,11 @@ export default function Admin() {
           <h1>Bem-vinda de volta, Sam 👋</h1>
 
           <p>
-
             Gerencie todo o conteúdo do Dicas da Sam.
-
           </p>
 
         </div>
+
 
         <div className="dashboard-cards">
 
@@ -46,6 +58,7 @@ export default function Admin() {
 
           </div>
 
+
           <div className="dashboard-card">
 
             <span>✈️</span>
@@ -56,6 +69,7 @@ export default function Admin() {
 
           </div>
 
+
           <div className="dashboard-card">
 
             <span>🍽</span>
@@ -65,6 +79,7 @@ export default function Admin() {
             <p>Gastronomia</p>
 
           </div>
+
 
           <div className="dashboard-card">
 
@@ -78,23 +93,20 @@ export default function Admin() {
 
         </div>
 
+
         <div className="admin-actions">
 
           <Link
-            to="#"
+            to="/admin/new-product"
             className="new-button"
           >
-
             + Novo Produto
-
           </Link>
 
         </div>
 
+
       </section>
-
     </AdminLayout>
-
   );
-
 }
