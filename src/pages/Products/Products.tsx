@@ -8,6 +8,20 @@ import CategoryFilter from "../../components/CategoryFilter/CategoryFilter";
 import { getProducts } from "../../services/productService";
 import type { Product } from "../../types/Product";
 
+// Categorias que pertencem ao universo "Produtos"
+const PRODUCT_CATEGORIES = [
+  "tecnologia",
+  "casa",
+  "cozinha",
+  "beleza",
+  "moda",
+  "esporte",
+  "livros",
+  "pet",
+  "automotivo",
+  "escritório",
+];
+
 export default function Products() {
   const [products, setProducts] = useState<Product[]>([]);
   const [search, setSearch] = useState("");
@@ -18,7 +32,13 @@ export default function Products() {
     async function loadProducts() {
       try {
         const data = await getProducts();
-        setProducts(data);
+
+        // Mantém apenas produtos físicos
+        const onlyProducts = data.filter((product) =>
+          PRODUCT_CATEGORIES.includes(product.category.toLowerCase())
+        );
+
+        setProducts(onlyProducts);
       } catch (error) {
         console.error("Erro ao carregar produtos:", error);
       } finally {
@@ -38,12 +58,11 @@ export default function Products() {
 
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
-      const searchText =
-        (
-          product.title +
-          product.category +
-          product.description
-        ).toLowerCase();
+      const searchText = (
+        product.title +
+        product.category +
+        product.description
+      ).toLowerCase();
 
       const matchesSearch = searchText.includes(
         search.toLowerCase()

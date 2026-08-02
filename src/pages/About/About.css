@@ -1,0 +1,384 @@
+.about-page {
+  padding: 80px 8%;
+}
+
+
+.about-container {
+
+  max-width:1300px;
+
+  margin:auto;
+
+  background:var(--surface);
+
+  border-radius:var(--radius);
+
+  padding:50px;
+
+  box-shadow:var(--shadow-md);
+
+}
+
+
+
+/* =========================
+   TOPO - FOTO + APRESENTAÇÃO
+========================= */
+
+
+.about-card {
+
+  display:grid;
+
+  grid-template-columns:420px 1fr;
+
+  gap:60px;
+
+  align-items:center;
+
+}
+
+
+
+.about-photo {
+
+  position:relative;
+
+  padding:8px;
+
+  border-radius:38px;
+
+  background:var(--gradient);
+
+}
+
+
+
+.about-photo img {
+
+  width:100%;
+
+  height:520px;
+
+  object-fit:cover;
+
+  border-radius:32px;
+
+}
+
+
+
+
+.about-tag {
+
+  color:var(--primary);
+
+  font-weight:700;
+
+  text-transform:uppercase;
+
+  letter-spacing:2px;
+
+}
+
+
+
+
+.about-card h1 {
+
+  font-size:48px;
+
+  color:var(--title);
+
+  margin:20px 0;
+
+  line-height:1.2;
+
+}
+
+
+
+.about-intro {
+
+  font-size:21px;
+
+  line-height:1.8;
+
+  color:var(--text);
+
+}
+
+
+
+
+
+/* =========================
+   HISTÓRIA
+========================= */
+
+
+.about-text {
+
+  margin-top:80px;
+
+  padding-top:60px;
+
+  width:100%;
+
+  border-top:1px solid var(--border);
+
+}
+
+
+
+.about-text p {
+
+  font-size:18px;
+
+  line-height:1.9;
+
+  color:var(--text);
+
+  margin-bottom:25px;
+
+}
+
+
+
+
+
+/* =========================
+   MISSÃO
+========================= */
+
+
+.about-mission {
+
+  margin:70px 0;
+
+  padding:45px;
+
+  border-radius:28px;
+
+
+  background:
+
+  linear-gradient(
+    135deg,
+    rgba(255,79,163,.08),
+    rgba(255,145,77,.08)
+  );
+
+
+  border:1px solid var(--border);
+
+}
+
+
+
+.about-mission h2 {
+
+  color:var(--title);
+
+  margin-bottom:15px;
+
+}
+
+
+
+.about-mission p {
+
+  color:var(--text);
+
+  font-size:18px;
+
+  line-height:1.8;
+
+}
+
+
+
+
+
+/* =========================
+   PILARES
+========================= */
+
+
+.about-values {
+
+  display:grid;
+
+  grid-template-columns:repeat(4,1fr);
+
+  gap:25px;
+
+}
+
+
+
+.about-values div {
+
+  background:#fff8fb;
+
+  padding:30px;
+
+  border-radius:25px;
+
+
+  border:1px solid #f6e4ec;
+
+
+  box-shadow:var(--shadow-sm);
+
+
+  transition:.3s;
+
+}
+
+
+
+.about-values div:hover {
+
+  transform:translateY(-5px);
+
+  box-shadow:var(--shadow-md);
+
+}
+
+
+
+.about-values h3 {
+
+  color:var(--title);
+
+  margin-bottom:15px;
+
+}
+
+
+
+.about-values p {
+
+  color:var(--text);
+
+  line-height:1.7;
+
+}
+
+
+
+
+
+/* =========================
+   INSTAGRAM
+========================= */
+
+
+.about-instagram {
+
+  margin-top:70px;
+
+  text-align:center;
+
+}
+
+
+
+.about-instagram h2 {
+
+  color:var(--title);
+
+  margin-bottom:10px;
+
+}
+
+
+
+.about-instagram p {
+
+  color:var(--text);
+
+}
+
+
+
+
+
+.about-button {
+
+  display:inline-block;
+
+  margin-top:25px;
+
+
+  padding:16px 35px;
+
+
+  border-radius:999px;
+
+
+  background:var(--gradient);
+
+
+  color:white;
+
+
+  font-weight:700;
+
+
+  transition:.3s;
+
+}
+
+
+
+.about-button:hover {
+
+  transform:translateY(-3px);
+
+  box-shadow:var(--shadow-md);
+
+}
+
+
+
+
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+
+@media(max-width:1000px){
+
+
+  .about-container {
+
+    padding:30px;
+
+  }
+
+
+  .about-card {
+
+    grid-template-columns:1fr;
+
+  }
+
+
+  .about-photo img {
+
+    height:auto;
+
+  }
+
+
+  .about-values {
+
+    grid-template-columns:1fr;
+
+  }
+
+
+}
