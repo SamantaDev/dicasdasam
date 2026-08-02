@@ -32,6 +32,7 @@ export default function Product() {
     loadProduct();
   }, [id]);
 
+
   if (loading) {
     return (
       <section className="product-page">
@@ -39,6 +40,7 @@ export default function Product() {
       </section>
     );
   }
+
 
   if (!product) {
     return (
@@ -52,42 +54,163 @@ export default function Product() {
     );
   }
 
+
   return (
     <section className="product-page">
+
       <div className="product-container">
 
+
         <div className="product-photo">
+
           <img
             className="main-image"
             src={product.image}
             alt={product.title}
           />
+
         </div>
 
+
+
         <div className="product-info">
+
 
           <span className="product-category">
             {product.category}
           </span>
 
-          <h1>{product.title}</h1>
 
-          <p>{product.description}</p>
 
-          <div className="product-benefits">
+          {product.samChoice && (
+            <span className="sam-badge">
+              ✨ Escolha da Sam
+            </span>
+          )}
 
-            <h3>Por que recomendamos?</h3>
 
-            <ul>
-              <li>✔ Produto selecionado cuidadosamente.</li>
-              <li>✔ Excelente custo-benefício.</li>
-              <li>✔ Boa avaliação dos consumidores.</li>
-              <li>✔ Vale a pena conhecer.</li>
-            </ul>
 
-          </div>
+          {product.novelty && (
+            <span className="new-badge">
+              🔥 Novidade
+            </span>
+          )}
+
+
+
+          <h1>
+            {product.title}
+          </h1>
+
+
+
+          <p>
+            {product.description}
+          </p>
+
+
+
+          {product.samOpinion && (
+
+            <div className="sam-opinion">
+
+              <h3>
+                💗 Opinião da Sam
+              </h3>
+
+              <p>
+                "{product.samOpinion}"
+              </p>
+
+            </div>
+
+          )}
+
+
+
+          {(product.pros?.length || product.cons?.length) && (
+
+            <div className="product-benefits">
+
+
+              <h3>
+                Minha avaliação
+              </h3>
+
+
+
+              {product.pros && product.pros.length > 0 && (
+
+                <div>
+
+                  <strong>
+                    Pontos positivos:
+                  </strong>
+
+                  <ul>
+
+                    {product.pros.map((item, index) => (
+
+                      <li key={index}>
+                        ✔ {item}
+                      </li>
+
+                    ))}
+
+                  </ul>
+
+                </div>
+
+              )}
+
+
+
+              {product.cons && product.cons.length > 0 && (
+
+                <div>
+
+                  <strong>
+                    Pontos de atenção:
+                  </strong>
+
+
+                  <ul>
+
+                    {product.cons.map((item, index) => (
+
+                      <li key={index}>
+                        ⚠ {item}
+                      </li>
+
+                    ))}
+
+                  </ul>
+
+                </div>
+
+              )}
+
+
+            </div>
+
+          )}
+
+
+
+          {product.rating && product.rating > 0 && (
+
+            <div className="rating">
+
+              ⭐ Nota da Sam: {product.rating}/5
+
+            </div>
+
+          )}
+
+
 
           <div className="product-buttons">
+
 
             <a
               href={product.affiliateLink}
@@ -98,6 +221,8 @@ export default function Product() {
               Comprar agora →
             </a>
 
+
+
             <Link
               to="/"
               className="back-button"
@@ -105,11 +230,15 @@ export default function Product() {
               ← Voltar
             </Link>
 
+
           </div>
+
 
         </div>
 
+
       </div>
+
     </section>
   );
 }
