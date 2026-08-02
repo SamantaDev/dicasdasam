@@ -282,3 +282,47 @@
   color: #827b88;
   font-size: 14px;
 }
+
+.new-product__section-title {
+  grid-column: 1 / -1;
+  margin: 12px 0 4px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #eee8f0;
+}
+
+.new-product__section-title h2 {
+  margin: 0;
+  color: #2d2438;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+}
+
+.new-product__section-title p {
+  margin: 6px 0 0;
+  color: #827b88;
+  font-size: 13px;
+}
+
+.new-product__section-title--full {
+  grid-column: 1 / -1;
+}
+.new-product__form > label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  color: #403647;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.new-product__form > label + label {
+  margin-top: 12px;
+}
+.new-product__form > .new-product__field {
+  margin-top: 18px;
+}
+
+.new-product__form > label:last-of-type {
+  margin-bottom: 18px;
+}

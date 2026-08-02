@@ -510,6 +510,18 @@ export default function NewProduct() {
 
             <div className="new-product__field">
 
+                <div className="new-product__section-title">
+
+  <h2>
+    📝 Informações principais
+  </h2>
+
+  <p>
+    Dados básicos da recomendação.
+  </p>
+
+</div>
+
 
               <label>
                 Nome *
@@ -780,6 +792,19 @@ export default function NewProduct() {
 
 
             </div>
+
+                        <div className="new-product__section-title new-product__section-title--full">
+
+  <h2>
+    ✨ Conteúdo da recomendação
+  </h2>
+
+  <p>
+    Conte a experiência e a opinião da Sam.
+  </p>
+
+</div>
+
                         <div className="new-product__field new-product__field--full">
 
 
@@ -810,7 +835,17 @@ export default function NewProduct() {
             </div>
 
 
+                <div className="new-product__section-title new-product__section-title--full">
 
+  <h2>
+    🎟 Oferta e benefícios
+  </h2>
+
+  <p>
+    Informações de compra, descontos e vantagens para seguidores.
+  </p>
+
+</div>
 
 
             <div className="new-product__field new-product__field--full">
@@ -918,7 +953,17 @@ export default function NewProduct() {
           </div>
 
 
+                <div className="new-product__section-title new-product__section-title--full">
 
+  <h2>
+    ⭐ Destaques
+  </h2>
+
+  <p>
+    Defina como essa recomendação será apresentada no site.
+  </p>
+
+</div>
 
 
           <label>
